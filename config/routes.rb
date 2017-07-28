@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :users
+    resources :events, only: [:index]
     resources :activities, except: [:destroy] do
       collection do
         get :last_month
