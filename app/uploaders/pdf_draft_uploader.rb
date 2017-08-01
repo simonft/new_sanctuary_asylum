@@ -5,7 +5,11 @@ class PdfDraftUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :aws
+  if Rails.env.test?
+    storage :file
+  else
+    storage :aws
+  end
   
   # storage :fog
 
